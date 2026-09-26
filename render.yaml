@@ -1,9 +1,0 @@
-services:
-  - type: web
-    name: ipsec-sentinel
-    env: python
-    buildCommand: "pip install -r backend/requirements.txt"
-    startCommand: "cd backend && python main.py"
-    envVars:
-      - key: PORT
-        value: 10000

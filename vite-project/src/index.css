@@ -1,0 +1,79 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* === Light Theme Overrides === */
+html.theme-light, body.theme-light {
+  background-color: #f1f5f9 !important;
+  color: #0f172a !important;
+}
+
+/* Light mode card panels */
+.theme-light [class*="bg-[#071335]"],
+.theme-light [class*="bg-[#050d2b]"],
+.theme-light [class*="bg-[#040a20]"],
+.theme-light [class*="bg-[#0a1128]"] {
+  background-color: rgba(255, 255, 255, 0.92) !important;
+  border-color: rgba(203, 213, 225, 0.8) !important;
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.08) !important;
+  color: #0f172a !important;
+}
+
+/* Light mode background container overrides */
+.theme-light [style*="radial-gradient"],
+.theme-light [style*="linear-gradient"] {
+  background-image: linear-gradient(rgba(241, 245, 249, 0.88), rgba(241, 245, 249, 0.92)), url("/src/assets/eye.jpg") !important;
+}
+
+/* Light mode text contrast */
+.theme-light h1,
+.theme-light h2,
+.theme-light h3,
+.theme-light .text-white {
+  color: #0f172a !important;
+}
+
+.theme-light .text-slate-100,
+.theme-light .text-slate-200,
+.theme-light .text-slate-300 {
+  color: #334155 !important;
+}
+
+.theme-light .text-slate-400,
+.theme-light .text-slate-500 {
+  color: #64748b !important;
+}
+
+/* Light mode form inputs & dropdowns */
+.theme-light input,
+.theme-light select,
+.theme-light textarea {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border-color: #cbd5e1 !important;
+}
+
+.theme-light select option {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+}
+
+/* Light mode borders */
+.theme-light [class*="border-blue-500/"] {
+  border-color: rgba(148, 163, 184, 0.5) !important;
+}
+
+/* Light mode sidebar */
+.theme-light aside {
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+}
+
+.theme-light aside a:not([class*="bg-blue-600"]) {
+  color: #475569 !important;
+}
+
+.theme-light aside a:not([class*="bg-blue-600"]):hover {
+  background-color: #f1f5f9 !important;
+  color: #1e293b !important;
+}
+
