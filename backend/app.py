@@ -22,7 +22,10 @@ UPLOADS_DIR = os.path.join(BASE_DIR, "uploads")
 HISTORY_FILE = os.path.join(BASE_DIR, "history.json")
 
 # Path to the Vite production build output
-FRONTEND_DIR = Path(BASE_DIR).parent / "vite-project" / "dist"
+# Check backend/dist first (Render deployment), then vite-project/dist (local dev)
+_RENDER_DIST = Path(BASE_DIR) / "dist"
+_LOCAL_DIST = Path(BASE_DIR).parent / "vite-project" / "dist"
+FRONTEND_DIR = _RENDER_DIST if _RENDER_DIST.exists() else _LOCAL_DIST
 
 os.makedirs(UPLOADS_DIR, exist_ok=True)
 
@@ -73,6 +76,12 @@ class QuestionRequest(BaseModel):
 
 class ConfigAuditRequest(BaseModel):
     config_text: str
+
+
+@app.get("/api/health")
+def health_check():
+    """Health check endpoint for Render deployment."""
+    return {"status": "healthy", "service": "SecuraX", "version": "1.0.0"}
 
 
 @app.get("/")
